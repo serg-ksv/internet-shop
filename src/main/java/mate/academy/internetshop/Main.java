@@ -31,16 +31,14 @@ public class Main {
         productService.create(product1);
         productService.create(product2);
         productService.create(product3);
-        for (Product product : productService.getAll()) {
-            System.out.println(product.toString());
-        }
+        productService.getAll()
+                .forEach(product -> System.out.println(product.toString()));
         Product getProduct = productService.get(1L);
         System.out.println(getProduct);
         productService.update(productService.get(2L));
         productService.delete(3L);
-        for (Product product : productService.getAll()) {
-            System.out.println(product.toString());
-        }
+        productService.getAll()
+                .forEach(product -> System.out.println(product.toString()));
 
         User user1 = new User("user1", "user1@mail.com", "somePass1");
         User user2 = new User("user2", "user2@mail.com", "somePass2");
@@ -48,31 +46,27 @@ public class Main {
         userService.create(user1);
         userService.create(user2);
         userService.create(user3);
-        for (User user : userService.getAll()) {
-            System.out.println(user.toString());
-        }
+        userService.getAll()
+                .forEach(user -> System.out.println(user.toString()));
         User getUser = userService.get(3L);
         System.out.println("Get user3:\n" + getUser);
         System.out.println("Update user1:\n" + userService.update(userService.get(1L)));
         System.out.println("Delete user2:" + userService.delete(2L));
-        for (User user : userService.getAll()) {
-            System.out.println(user.toString());
-        }
+        userService.getAll()
+                .forEach(user -> System.out.println(user.toString()));
 
         final ShoppingCart user1Cart = shoppingCartService.getByUserId(user1.getId());
-        shoppingCartService.addProduct(shoppingCartService.getByUserId(user1.getId()), product1);
-        shoppingCartService.addProduct(shoppingCartService.getByUserId(user1.getId()), product2);
+        shoppingCartService.addProduct(user1Cart, product1);
+        shoppingCartService.addProduct(user1Cart, product2);
         List<Product> user1Products =
-                shoppingCartService.getAllProducts(shoppingCartService.getByUserId(user1.getId()));
+                shoppingCartService.getAllProducts(user1Cart);
         System.out.println("User1's products:");
-        for (Product product : user1Products) {
-            System.out.println(product);
-        }
+        user1Products.forEach(product -> System.out.println(product.toString()));
         shoppingCartService.deleteProduct(user1Cart, product1);
         System.out.println("User1's products:\n" + user1Cart.getProducts());
 
-        Order user1Order = orderService.completeOrder(shoppingCartService.getAllProducts(
-                shoppingCartService.getByUserId(user1.getId())), user1);
+        Order user1Order = orderService.completeOrder(
+                shoppingCartService.getAllProducts(user1Cart), user1);
         System.out.println(orderService.getAll());
         System.out.println(orderService.get(user1Order.getId()));
         System.out.println(orderService.getUserOrders(user1));
