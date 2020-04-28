@@ -4,7 +4,6 @@
         <title>Add product</title>
     </head>
     <body>
-        <h3>${message}</h3>
         <form method="post" action="${pageContext.request.contextPath}/products/add-product">
             Product name: <input type="text" name="name">
             Product price: <input type="number" name="price">

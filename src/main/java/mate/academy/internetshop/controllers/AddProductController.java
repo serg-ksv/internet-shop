@@ -26,14 +26,9 @@ public class AddProductController extends HttpServlet {
             throws ServletException, IOException {
         var name = req.getParameter("name");
         var price = req.getParameter("price");
-        if (name.isEmpty() || price.isEmpty()) {
-            req.setAttribute("message", "The fields should not be empty!");
-            req.getRequestDispatcher("/WEB-INF/views/products/addProduct.jsp").forward(req, resp);
-        } else {
-            var product = new Product(name, BigDecimal.valueOf(Long.parseLong(price)));
-            var addedProduct = productService.create(product);
-            req.setAttribute("product", addedProduct);
-            req.getRequestDispatcher("/WEB-INF/views/products/productInfo.jsp").forward(req, resp);
-        }
+        var product = new Product(name, BigDecimal.valueOf(Long.parseLong(price)));
+        var addedProduct = productService.create(product);
+        req.setAttribute("product", addedProduct);
+        req.getRequestDispatcher("/WEB-INF/views/products/productInfo.jsp").forward(req, resp);
     }
 }
