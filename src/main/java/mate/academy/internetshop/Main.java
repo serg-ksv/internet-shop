@@ -40,9 +40,9 @@ public class Main {
         productService.getAll()
                 .forEach(product -> System.out.println(product.toString()));
 
-        User user1 = new User("user1", "user1@mail.com", "somePass1");
-        User user2 = new User("user2", "user2@mail.com", "somePass2");
-        User user3 = new User("user3", "user3@mail.com", "somePass3");
+        User user1 = new User("user1", "user1@mail.com", "login1", "somePass1");
+        User user2 = new User("user2", "user2@mail.com", "login2", "somePass2");
+        User user3 = new User("user3", "user3@mail.com", "login3", "somePass3");
         userService.create(user1);
         userService.create(user2);
         userService.create(user3);
