@@ -2,13 +2,21 @@
 <html>
     <head>
         <title>Add product</title>
+        <jsp:include page="../templates/bootstrap.jsp"/>
+        <style><%@ include file="../../../resources/css/styles.css" %></style>
     </head>
     <body>
+        <jsp:include page="../templates/navbar.jsp"/>
         <form method="post" action="${pageContext.request.contextPath}/products/add-product">
-            Product name: <input type="text" name="name">
-            Product price: <input type="number" name="price">
-            <button type="submit">Add</button>
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" class="form-control" id="Name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="Price">Price</label>
+                <input type="number" class="form-control" id="Price" name="price">
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Add</button>
         </form>
-        <a href="${pageContext.request.contextPath}/">Back to the main page</a>
     </body>
 </html>

@@ -3,13 +3,16 @@
 <html>
     <head>
         <title>Shopping cart</title>
+        <jsp:include page="templates/bootstrap.jsp"/>
+        <style><%@ include file="../../resources/css/styles.css" %></style>
     </head>
     <body>
-        <table border="1">
+        <jsp:include page="templates/navbar.jsp"/>
+        <table class="table table-hover table-sm">
             <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Delete product</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Delete product</th>
             </tr>
             <c:forEach var="product" items="${products}">
                 <tr>
@@ -25,7 +28,10 @@
                 </tr>
             </c:forEach>
         </table>
-        <li><a href="${pageContext.request.contextPath}/">Back to the main page</a></li>
-        <li><a href="${pageContext.request.contextPath}/products/all">Show all products</a></li>
+        <h3>
+            <a href="${pageContext.request.contextPath}/orders/complete-order">
+               <span class="badge badge-secondary">Checkout</span>
+            </a>
+        </h3>
     </body>
 </html>

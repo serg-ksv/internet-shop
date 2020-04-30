@@ -1,0 +1,12 @@
+body {
+    text-align: center;
+}
+
+.form-group {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 250px;
+    height: auto;
+}
