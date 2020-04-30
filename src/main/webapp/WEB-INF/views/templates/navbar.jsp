@@ -24,9 +24,18 @@
                 </a>
             </li>
         </ul>
-        <a href="${pageContext.request.contextPath}/admin/all-products"
-           class="btn btn-outline-secondary my-2 my-sm-0" role="button">Admin</a>
-        <a href="${pageContext.request.contextPath}/register"
-           class="btn btn-outline-secondary my-2 my-sm-0" role="button">Sign Up</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+            <a href="${pageContext.request.contextPath}/admin/all-products"
+               class="nav-link" role="button">Admin</a>
+            </li>
+            <li class="nav-item">
+                <a href="${pageContext.request.contextPath}/login"
+                   class="nav-link" role="button">Sign In</a>
+            </li>
+            <a href="${pageContext.request.contextPath}/register"
+               class="nav-link" role="button">Sign Up</a>
+            </li>
+        </ul>
     </div>
 </nav>
