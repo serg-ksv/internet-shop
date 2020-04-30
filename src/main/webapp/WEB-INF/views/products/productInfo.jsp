@@ -2,12 +2,34 @@
 <html>
     <head>
         <title>Product info</title>
+        <jsp:include page="../templates/bootstrap.jsp"/>
+        <style><%@ include file="../../../resources/css/styles.css" %></style>
     </head>
     <body>
-        <h2>Added product:</h2>
-        <p>Product name: ${product.name}</p>
-        <p>Product price: ${product.price}</p>
-        <a href="${pageContext.request.contextPath}/">Back to the main page</a>
-        <a href="${pageContext.request.contextPath}/products/all">Show all products</a>
+        <jsp:include page="../templates/navbar.jsp"/>
+        <div class="alert alert-success" role="alert">
+            Product successfully added
+        </div>
+        <div class="container">
+            <table class="table table-borderless">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                </tr>
+                <tr>
+                    <td>
+                        ${product.name}
+                    </td>
+                    <td>
+                        ${product.price}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <h3>
+            <a href="${pageContext.request.contextPath}/admin/all-products">
+                <span class="badge badge-secondary">Back</span>
+            </a>
+        </h3>
     </body>
 </html>

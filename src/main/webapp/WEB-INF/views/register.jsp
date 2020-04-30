@@ -2,19 +2,36 @@
 <html>
     <head>
         <title>Register</title>
+        <jsp:include page="templates/bootstrap.jsp"/>
+        <style><%@ include file="../../resources/css/styles.css" %></style>
     </head>
     <body>
-        <div>
-            <h3>${message}</h3>
+        <jsp:include page="templates/navbar.jsp"/>
+        <div class="alert alert-warning" role="alert">
+            ${message}
         </div>
         <form method="post" action="${pageContext.request.contextPath}/register">
-            name: <input type="text" name="name">
-            email: <input type="email" name="email">
-            login: <input type="text" name="login">
-            password: <input type="password" name="password">
-            confirm password: <input type="password" name="confirmPassword">
-            <button type="submit">Submit</button>
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" class="form-control" id="Name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="Email">Email address</label>
+                <input type="email" class="form-control" id="Email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="Login">Login</label>
+                <input type="text" class="form-control" id="Login" name="login">
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input type="password" class="form-control" id="Password" name="password">
+            </div>
+            <div class="form-group">
+                <label for="ConfirmPassword">Confirm password</label>
+                <input type="password" class="form-control" id="ConfirmPassword" name="confirmPassword">
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
         </form>
-        <a href="${pageContext.request.contextPath}/">Back to the main page</a>
     </body>
 </html>

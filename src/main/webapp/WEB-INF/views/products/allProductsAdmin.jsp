@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
-        <title>All products</title>
+        <title>All products for Admin</title>
         <jsp:include page="../templates/bootstrap.jsp"/>
         <style><%@ include file="../../../resources/css/styles.css" %></style>
     </head>
@@ -14,7 +14,7 @@
                 <tr class="d-flex">
                     <th class="col-4">Name</th>
                     <th class="col-4">Price</th>
-                    <th class="col-4">Add to cart</th>
+                    <th class="col-4">Delete product</th>
                 </tr>
                 <c:forEach var="product" items="${products}">
                     <tr class="d-flex">
@@ -25,11 +25,16 @@
                             <c:out value="${product.price}"/>
                         </td>
                         <td class="col-4">
-                            <a href="${pageContext.request.contextPath}/add-product-to-cart?id=${product.id}">ADD</a>
+                            <a href="${pageContext.request.contextPath}/products/delete?id=${product.id}">Delete</a>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
+            <h3>
+                <a href="${pageContext.request.contextPath}/products/add-product">
+                    <span class="badge badge-secondary">Add new product</span>
+                </a>
+            </h3>
         </div>
     </body>
 </html>

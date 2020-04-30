@@ -3,16 +3,19 @@
 <html>
     <head>
         <title>All users</title>
+        <jsp:include page="../templates/bootstrap.jsp"/>
+        <style><%@ include file="../../../resources/css/styles.css" %></style>
     </head>
     <body>
+        <jsp:include page="../templates/navbar.jsp"/>
         <h1>All users</h1>
-        <table border="1">
+        <table class="table table-hover">
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Login</th>
-                <th>Delete</th>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Login</th>
+                <th scope="col">Delete</th>
             </tr>
             <c:forEach var="user" items="${users}">
                 <tr>
@@ -34,6 +37,5 @@
                 </tr>
             </c:forEach>
         </table>
-        <a href="${pageContext.request.contextPath}/">Back to the main page</a>
     </body>
 </html>

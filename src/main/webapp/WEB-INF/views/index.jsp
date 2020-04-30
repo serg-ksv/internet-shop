@@ -2,27 +2,15 @@
 <html>
     <head>
         <title>Main</title>
+        <jsp:include page="templates/bootstrap.jsp"/>
+        <style><%@ include file="../../resources/css/styles.css" %></style>
     </head>
     <body>
-        <ul>
-            <li>
-                <a href="${pageContext.request.contextPath}/injectData">Inject test data into the DB</a>
-            </li>
-            <li>
-                <a href="${pageContext.request.contextPath}/register">Register</a>
-            </li>
-            <li>
-                <a href="${pageContext.request.contextPath}/users/all">Show all users</a>
-            </li>
-            <li>
-                <a href="${pageContext.request.contextPath}/products/add-product">Add product</a>
-            </li>
-            <li>
-                <a href="${pageContext.request.contextPath}/products/all">Show all products</a>
-            </li>
-            <li>
-                <a href="${pageContext.request.contextPath}/shopping-cart">Shopping cart</a>
-            </li>
-        </ul>
+        <jsp:include page="templates/navbar.jsp"/>
+        <h1>
+            <a href="${pageContext.request.contextPath}/injectData">
+                <span class="badge badge-secondary">Inject test data into the DB</span>
+            </a>
+        </h1>
     </body>
 </html>
