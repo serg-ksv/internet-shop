@@ -8,24 +8,27 @@
     </head>
     <body>
         <jsp:include page="../templates/navbar.jsp"/>
-        <h1>All products</h1>
+        <header>
+            <h2>All products</h2>
+        </header>
         <div class="container">
             <table class="table table-hover">
-                <tr class="d-flex">
-                    <th class="col-4">Name</th>
-                    <th class="col-4">Price</th>
-                    <th class="col-4">Add to cart</th>
+                <tr>
+                    <th class="th-name">Name</th>
+                    <th class="th-price">Price</th>
+                    <th class="th-option">Add to cart</th>
                 </tr>
                 <c:forEach var="product" items="${products}">
-                    <tr class="d-flex">
-                        <td class="col-4">
+                    <tr>
+                        <td>
                             <c:out value="${product.name}"/>
                         </td>
-                        <td class="col-4">
+                        <td>
                             <c:out value="${product.price}"/>
                         </td>
-                        <td class="col-4">
-                            <a href="${pageContext.request.contextPath}/add-product-to-cart?id=${product.id}">ADD</a>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/add-product-to-cart?id=${product.id}"
+                               class="btn-sm btn-outline-primary">ADD</a>
                         </td>
                     </tr>
                 </c:forEach>

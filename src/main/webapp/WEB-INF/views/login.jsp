@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -7,9 +8,13 @@
     </head>
     <body>
         <jsp:include page="templates/navbar.jsp"/>
-        <div class="alert alert-warning" role="alert">
-            ${errorMessage}
-        </div>
+        <header>
+            <c:if test="${not empty errorMessage}">
+                <div class="alert alert-warning" role="alert">
+                    ${errorMessage}
+                </div>
+            </c:if>
+        </header>
         <form method="post" action="${pageContext.request.contextPath}/login">
             <div class="form-group">
                 <label for="Login">Login</label>

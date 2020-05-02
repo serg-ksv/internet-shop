@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="${pageContext.request.contextPath}/">Internet-shop</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -33,8 +33,9 @@
                 <a href="${pageContext.request.contextPath}/login"
                    class="nav-link" role="button">Sign In</a>
             </li>
-            <a href="${pageContext.request.contextPath}/register"
-               class="nav-link" role="button">Sign Up</a>
+            <li class="nav-item">
+                <a href="${pageContext.request.contextPath}/register"
+                   class="nav-link" role="button">Sign Up</a>
             </li>
         </ul>
     </div>

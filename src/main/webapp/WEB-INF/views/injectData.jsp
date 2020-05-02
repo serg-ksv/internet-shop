@@ -7,8 +7,10 @@
     </head>
     <body>
         <jsp:include page="templates/navbar.jsp"/>
-        <div class="alert alert-success" role="alert">
-            Your test data was added to DB
-        </div>
+        <header>
+            <div class="alert alert-success" role="alert">
+                Your test data was added to DB
+            </div>
+        </header>
     </body>
 </html>

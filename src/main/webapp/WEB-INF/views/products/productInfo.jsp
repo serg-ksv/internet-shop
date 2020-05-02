@@ -7,29 +7,14 @@
     </head>
     <body>
         <jsp:include page="../templates/navbar.jsp"/>
-        <div class="alert alert-success" role="alert">
-            Product successfully added
-        </div>
-        <div class="container">
-            <table class="table table-borderless">
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                </tr>
-                <tr>
-                    <td>
-                        ${product.name}
-                    </td>
-                    <td>
-                        ${product.price}
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <h3>
-            <a href="${pageContext.request.contextPath}/admin/all-products">
-                <span class="badge badge-secondary">Back</span>
-            </a>
-        </h3>
+        <header>
+            <div class="alert alert-success" role="alert">
+                ${product.name} ($${product.price}) successfully added
+            </div>
+        </header>
+        <a href="${pageContext.request.contextPath}/admin/all-products"
+            class="btn btn-outline-secondary">Back to products</a>
+        <a href="${pageContext.request.contextPath}/products/add-product"
+            class="btn btn-outline-secondary">Add more</a>
     </body>
 </html>

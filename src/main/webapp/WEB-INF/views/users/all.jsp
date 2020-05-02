@@ -8,34 +8,39 @@
     </head>
     <body>
         <jsp:include page="../templates/navbar.jsp"/>
-        <h1>All users</h1>
-        <table class="table table-hover">
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Login</th>
-                <th scope="col">Delete</th>
-            </tr>
-            <c:forEach var="user" items="${users}">
+        <header>
+            <h2>All users</h2>
+        </header>
+        <div class="container">
+            <table class="table table-hover">
                 <tr>
-                    <td>
-                        <c:out value="${user.id}"/>
-                    </td>
-                    <td>
-                        <c:out value="${user.name}"/>
-                    </td>
-                    <td>
-                        <c:out value="${user.email}"/>
-                    </td>
-                    <td>
-                        <c:out value="${user.login}"/>
-                    </td>
-                    <td>
-                        <a href="${pageContext.request.contextPath}/users/delete?id=${user.id}">Delete</a>
-                    </td>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Login</th>
+                    <th class="th-option">Delete</th>
                 </tr>
-            </c:forEach>
-        </table>
+                <c:forEach var="user" items="${users}">
+                    <tr>
+                        <td>
+                            <c:out value="${user.id}"/>
+                        </td>
+                        <td>
+                            <c:out value="${user.name}"/>
+                        </td>
+                        <td>
+                            <c:out value="${user.email}"/>
+                        </td>
+                        <td>
+                            <c:out value="${user.login}"/>
+                        </td>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/users/delete?id=${user.id}"
+                               class="btn-sm btn-outline-danger">Delete</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
     </body>
 </html>

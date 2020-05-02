@@ -8,33 +8,33 @@
     </head>
     <body>
         <jsp:include page="../templates/navbar.jsp"/>
-        <h1>All products</h1>
+        <header>
+            <a href="${pageContext.request.contextPath}/products/add-product"
+               class="btn btn-outline-secondary">Add new product</a>
+        </header>
         <div class="container">
+            <h2>All products</h2>
             <table class="table table-hover">
-                <tr class="d-flex">
-                    <th class="col-4">Name</th>
-                    <th class="col-4">Price</th>
-                    <th class="col-4">Delete product</th>
+                <tr>
+                    <th class="th-name">Name</th>
+                    <th class="th-price">Price</th>
+                    <th class="th-option">Delete product</th>
                 </tr>
                 <c:forEach var="product" items="${products}">
-                    <tr class="d-flex">
-                        <td class="col-4">
+                    <tr>
+                        <td>
                             <c:out value="${product.name}"/>
                         </td>
-                        <td class="col-4">
+                        <td>
                             <c:out value="${product.price}"/>
                         </td>
-                        <td class="col-4">
-                            <a href="${pageContext.request.contextPath}/products/delete?id=${product.id}">Delete</a>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/products/delete?id=${product.id}"
+                               class="btn-sm btn-outline-danger">Delete</a>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
-            <h3>
-                <a href="${pageContext.request.contextPath}/products/add-product">
-                    <span class="badge badge-secondary">Add new product</span>
-                </a>
-            </h3>
         </div>
     </body>
 </html>

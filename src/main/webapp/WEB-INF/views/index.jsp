@@ -7,10 +7,12 @@
     </head>
     <body>
         <jsp:include page="templates/navbar.jsp"/>
-        <h1>
-            <a href="${pageContext.request.contextPath}/injectData">
-                <span class="badge badge-secondary">Inject test data into the DB</span>
-            </a>
-        </h1>
+        <header>
+            <h1>
+                <a href="${pageContext.request.contextPath}/injectData">
+                    <span class="badge badge-secondary">Inject test data into the DB</span>
+                </a>
+            </h1>
+        </header>
     </body>
 </html>
