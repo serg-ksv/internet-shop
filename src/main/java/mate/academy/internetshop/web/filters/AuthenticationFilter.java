@@ -13,7 +13,6 @@ import mate.academy.internetshop.lib.Injector;
 import mate.academy.internetshop.service.UserService;
 
 public class AuthenticationFilter implements Filter {
-    private static final String USER_ID = "user_id";
     private static final Injector INJECTOR = Injector.getInstance("mate.academy.internetshop");
     private final UserService userService =
             (UserService) INJECTOR.getInstance(UserService.class);
@@ -35,7 +34,7 @@ public class AuthenticationFilter implements Filter {
             return;
         }
 
-        var userId = (Long) req.getSession().getAttribute(USER_ID);
+        var userId = (Long) req.getSession().getAttribute("user_id");
         if (userId == null || userService.get(userId) == null) {
             resp.sendRedirect(req.getContextPath() + "/login");
             return;

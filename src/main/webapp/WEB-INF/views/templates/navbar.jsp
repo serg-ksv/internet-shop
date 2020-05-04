@@ -26,7 +26,7 @@
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a href="${pageContext.request.contextPath}/admin/all-products"
+            <a href="${pageContext.request.contextPath}/admin/products/all"
                class="nav-link" role="button">Admin</a>
             </li>
             <li class="nav-item">
