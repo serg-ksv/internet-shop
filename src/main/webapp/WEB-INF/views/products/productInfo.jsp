@@ -12,9 +12,9 @@
                 ${product.name} ($${product.price}) successfully added
             </div>
         </header>
-        <a href="${pageContext.request.contextPath}/admin/all-products"
+        <a href="${pageContext.request.contextPath}/admin/products/all"
             class="btn btn-outline-secondary">Back to products</a>
-        <a href="${pageContext.request.contextPath}/products/add-product"
+        <a href="${pageContext.request.contextPath}/products/add"
             class="btn btn-outline-secondary">Add more</a>
     </body>
 </html>

@@ -9,7 +9,7 @@
     <body>
         <jsp:include page="../templates/navbar.jsp"/>
         <header>
-            <a href="${pageContext.request.contextPath}/products/add-product"
+            <a href="${pageContext.request.contextPath}/products/add"
                class="btn btn-outline-secondary">Add new product</a>
         </header>
         <div class="container">

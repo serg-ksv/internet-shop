@@ -27,7 +27,7 @@
                             <c:out value="${product.price}"/>
                         </td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/delete-product-from-cart?id=${product.id}"
+                            <a href="${pageContext.request.contextPath}/shopping-cart/products/delete?id=${product.id}"
                                class="btn-sm btn-outline-danger">Delete</a>
                         </td>
                     </tr>
