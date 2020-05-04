@@ -8,30 +8,35 @@
     </head>
     <body>
         <jsp:include page="templates/navbar.jsp"/>
-        <table class="table table-hover table-sm">
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Delete product</th>
-            </tr>
-            <c:forEach var="product" items="${products}">
+        <header>
+            <h2>Your cart</h2>
+        </header>
+        <div class="container">
+            <table class="table table-hover table-sm">
                 <tr>
-                    <td>
-                        <c:out value="${product.name}"/>
-                    </td>
-                    <td>
-                        <c:out value="${product.price}"/>
-                    </td>
-                    <td>
-                        <a href="${pageContext.request.contextPath}/delete-product-from-cart?id=${product.id}">Delete</a>
-                    </td>
+                    <th class="th-name">Name</th>
+                    <th class="th-price">Price</th>
+                    <th class="th-option">Delete product</th>
                 </tr>
-            </c:forEach>
-        </table>
-        <h3>
-            <a href="${pageContext.request.contextPath}/orders/complete-order">
-               <span class="badge badge-secondary">Checkout</span>
-            </a>
-        </h3>
+                <c:forEach var="product" items="${products}">
+                    <tr>
+                        <td>
+                            <c:out value="${product.name}"/>
+                        </td>
+                        <td>
+                            <c:out value="${product.price}"/>
+                        </td>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/delete-product-from-cart?id=${product.id}"
+                               class="btn-sm btn-outline-danger">Delete</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+        <a href="${pageContext.request.contextPath}/products/all"
+           class="btn btn-outline-secondary">Back to products</a>
+        <a href="${pageContext.request.contextPath}/orders/complete-order"
+            class="btn btn-outline-secondary">Checkout</a>
     </body>
 </html>

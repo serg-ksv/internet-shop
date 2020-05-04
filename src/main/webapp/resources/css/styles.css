@@ -10,3 +10,33 @@ body {
     width: 250px;
     height: auto;
 }
+
+header {
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+.alert {
+    width: 40%;
+    margin: auto;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.th-name {
+    width: 80%;
+}
+
+.th-price {
+    width: 10%;
+}
+
+.th-option {
+    width: 10%;
+}
+
+ol {
+    padding-left: 0px;
+}

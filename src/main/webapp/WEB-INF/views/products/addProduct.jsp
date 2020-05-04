@@ -7,6 +7,9 @@
     </head>
     <body>
         <jsp:include page="../templates/navbar.jsp"/>
+        <header>
+            <h2>Add Product</h2>
+        </header>
         <form method="post" action="${pageContext.request.contextPath}/products/add-product">
             <div class="form-group">
                 <label for="Name">Name</label>
@@ -16,7 +19,7 @@
                 <label for="Price">Price</label>
                 <input type="number" class="form-control" id="Price" name="price">
             </div>
-            <button type="submit" class="btn btn-outline-primary">Add</button>
+            <button type="submit" class="btn btn-outline-secondary">Add</button>
         </form>
     </body>
 </html>
