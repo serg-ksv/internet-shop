@@ -11,7 +11,7 @@ import mate.academy.internetshop.model.Order;
 import mate.academy.internetshop.service.OrderService;
 import mate.academy.internetshop.service.UserService;
 
-public class GetAllOrdersController extends HttpServlet {
+public class GetUserOrdersController extends HttpServlet {
     private static final Injector INJECTOR = Injector.getInstance("mate.academy");
     private final OrderService orderService =
             (OrderService) INJECTOR.getInstance(OrderService.class);
@@ -22,8 +22,8 @@ public class GetAllOrdersController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         var userId = (Long) req.getSession().getAttribute("user_id");
-        List<Order> allOrders = orderService.getUserOrders(userService.get(userId));
-        req.setAttribute("orders", allOrders);
+        List<Order> userOrders = orderService.getUserOrders(userService.get(userId));
+        req.setAttribute("orders", userOrders);
         req.getRequestDispatcher("/WEB-INF/views/orders/all.jsp").forward(req, resp);
     }
 }

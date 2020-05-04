@@ -106,7 +106,7 @@
 
     <servlet>
         <servlet-name>showShoppingCart</servlet-name>
-        <servlet-class>mate.academy.internetshop.controllers.ShoppingCartController</servlet-class>
+        <servlet-class>mate.academy.internetshop.controllers.GetShoppingCartController</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -136,7 +136,7 @@
 
     <servlet>
         <servlet-name>allOrders</servlet-name>
-        <servlet-class>mate.academy.internetshop.controllers.GetAllOrdersController</servlet-class>
+        <servlet-class>mate.academy.internetshop.controllers.GetUserOrdersController</servlet-class>
     </servlet>
 
     <servlet-mapping>
