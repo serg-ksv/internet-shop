@@ -10,6 +10,11 @@
         <jsp:include page="templates/navbar.jsp"/>
         <header>
             <h2>Your cart</h2>
+            <c:if test="${not empty message}">
+                <div class="alert alert-warning" role="alert">
+                        ${message}
+                </div>
+            </c:if>
         </header>
         <div class="container">
             <table class="table table-hover table-sm">

@@ -8,14 +8,9 @@
     <body>
         <jsp:include page="templates/navbar.jsp"/>
         <header>
-            <div class="alert alert-success" role="alert">
-                <h3>Welcome, ${user_name}!</h3>
+            <div class="alert alert-danger" role="alert">
+                Sorry, access to this page is denied!
             </div>
-            <h3>
-                <a href="${pageContext.request.contextPath}/injectData">
-                    <span class="badge badge-secondary">Inject test data into the DB</span>
-                </a>
-            </h3>
         </header>
     </body>
 </html>

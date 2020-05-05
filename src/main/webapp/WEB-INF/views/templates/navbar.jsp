@@ -9,11 +9,6 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/users/all">
-                    Show users
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="${pageContext.request.contextPath}/products/all">
                     Show products
                 </a>
@@ -26,16 +21,17 @@
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
+                <a class="nav-link" href="${pageContext.request.contextPath}/users/all">
+                    Show users
+                </a>
+            </li>
+            <li class="nav-item">
             <a href="${pageContext.request.contextPath}/admin/products/all"
-               class="nav-link" role="button">Admin</a>
+               class="nav-link" role="button">Product management</a>
             </li>
             <li class="nav-item">
-                <a href="${pageContext.request.contextPath}/login"
-                   class="nav-link" role="button">Sign In</a>
-            </li>
-            <li class="nav-item">
-                <a href="${pageContext.request.contextPath}/register"
-                   class="nav-link" role="button">Sign Up</a>
+                <a href="${pageContext.request.contextPath}/logout"
+                   class="nav-link" role="button">Log out</a>
             </li>
         </ul>
     </div>

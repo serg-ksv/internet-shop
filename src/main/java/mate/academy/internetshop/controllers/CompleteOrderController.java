@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mate.academy.internetshop.lib.Injector;
-import mate.academy.internetshop.model.Product;
 import mate.academy.internetshop.service.OrderService;
 import mate.academy.internetshop.service.ShoppingCartService;
 import mate.academy.internetshop.service.UserService;
@@ -26,9 +25,14 @@ public class CompleteOrderController extends HttpServlet {
             throws ServletException, IOException {
         var userId = (Long) req.getSession().getAttribute("user_id");
         var shoppingCart = shoppingCartService.getByUserId(userId);
-        List<Product> products = List.copyOf(shoppingCart.getProducts());
-        orderService.completeOrder(products, shoppingCart.getUser());
-        shoppingCartService.clear(shoppingCart);
-        resp.sendRedirect(req.getContextPath() + "/orders/all");
+        var products = List.copyOf(shoppingCart.getProducts());
+        if (products.isEmpty()) {
+            req.setAttribute("message", "Your cart is empty!");
+            req.getRequestDispatcher("/WEB-INF/views/shoppingCart.jsp").forward(req, resp);
+        } else {
+            orderService.completeOrder(products, shoppingCart.getUser());
+            shoppingCartService.clear(shoppingCart);
+            resp.sendRedirect(req.getContextPath() + "/orders/all");
+        }
     }
 }
