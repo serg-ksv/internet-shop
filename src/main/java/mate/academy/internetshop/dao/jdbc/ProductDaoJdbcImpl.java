@@ -30,7 +30,7 @@ public class ProductDaoJdbcImpl implements ProductDao {
             }
             return product;
         } catch (SQLException e) {
-            throw new DataProcessingException(e.getMessage());
+            throw new DataProcessingException("Can't create product. " + e.getMessage());
         }
     }
 
@@ -47,7 +47,7 @@ public class ProductDaoJdbcImpl implements ProductDao {
             }
             return Optional.of(product);
         } catch (SQLException e) {
-            throw new DataProcessingException(e.getMessage());
+            throw new DataProcessingException("Can't retrieve product. " + e.getMessage());
         }
     }
 
@@ -64,7 +64,7 @@ public class ProductDaoJdbcImpl implements ProductDao {
             }
             return products;
         } catch (SQLException e) {
-            throw new DataProcessingException(e.getMessage());
+            throw new DataProcessingException("Can't retrieve products. " + e.getMessage());
         }
     }
 
@@ -79,7 +79,7 @@ public class ProductDaoJdbcImpl implements ProductDao {
             preparedStatement.executeUpdate();
             return product;
         } catch (SQLException e) {
-            throw new DataProcessingException(e.getMessage());
+            throw new DataProcessingException("Can't update product. " + e.getMessage());
         }
     }
 
@@ -92,7 +92,7 @@ public class ProductDaoJdbcImpl implements ProductDao {
             preparedStatement.executeUpdate();
             return true;
         } catch (SQLException e) {
-            throw new DataProcessingException(e.getMessage());
+            throw new DataProcessingException("Can't delete product. " + e.getMessage());
         }
     }
 
