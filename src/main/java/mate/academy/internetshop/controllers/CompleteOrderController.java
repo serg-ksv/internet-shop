@@ -30,7 +30,7 @@ public class CompleteOrderController extends HttpServlet {
             req.setAttribute("message", "Your cart is empty!");
             req.getRequestDispatcher("/WEB-INF/views/shoppingCart.jsp").forward(req, resp);
         } else {
-            orderService.completeOrder(products, shoppingCart.getUser());
+            orderService.completeOrder(products, shoppingCart.getUserId());
             shoppingCartService.clear(shoppingCart);
             resp.sendRedirect(req.getContextPath() + "/orders/all");
         }

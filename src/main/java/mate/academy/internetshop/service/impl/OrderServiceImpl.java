@@ -16,8 +16,8 @@ public class OrderServiceImpl implements OrderService {
     private OrderDao orderDao;
 
     @Override
-    public Order completeOrder(List<Product> products, User user) {
-        Order order = new Order(user, products);
+    public Order completeOrder(List<Product> products, Long userId) {
+        Order order = new Order(userId, products);
         orderDao.create(order);
         return order;
     }
