@@ -5,11 +5,11 @@ import java.util.List;
 
 public class ShoppingCart {
     private Long id;
-    private User user;
+    private Long userId;
     private List<Product> products = new ArrayList<>();
 
-    public ShoppingCart(User user) {
-        this.user = user;
+    public ShoppingCart(Long userId) {
+        this.userId = userId;
     }
 
     public Long getId() {
@@ -20,12 +20,12 @@ public class ShoppingCart {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public List<Product> getProducts() {
@@ -40,7 +40,7 @@ public class ShoppingCart {
     public String toString() {
         return "ShoppingCart{"
                 + "id=" + id
-                + ", user=" + user
+                + ", userId=" + userId
                 + ", products=" + products
                 + '}';
     }

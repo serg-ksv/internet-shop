@@ -66,7 +66,7 @@ public class Main {
         System.out.println("User1's products:\n" + user1Cart.getProducts());
 
         Order user1Order = orderService.completeOrder(
-                shoppingCartService.getAllProducts(user1Cart), user1);
+                shoppingCartService.getAllProducts(user1Cart), user1.getId());
         System.out.println(orderService.getAll());
         System.out.println(orderService.get(user1Order.getId()));
         System.out.println(orderService.getUserOrders(user1));
