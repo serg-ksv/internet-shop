@@ -7,6 +7,7 @@ import mate.academy.internetshop.lib.Inject;
 import mate.academy.internetshop.lib.Service;
 import mate.academy.internetshop.model.User;
 import mate.academy.internetshop.service.UserService;
+import mate.academy.internetshop.util.HashUtil;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -16,6 +17,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User create(User user) {
+        byte[] salt = HashUtil.getSalt();
+        var hashPassword = HashUtil.hashPassword(user.getPassword(), salt);
+        user.setPassword(hashPassword);
+        user.setSalt(salt);
         return userDao.create(user);
     }
 
@@ -31,6 +36,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User update(User user) {
+        byte[] salt = HashUtil.getSalt();
+        var hashPassword = HashUtil.hashPassword(user.getPassword(), salt);
+        user.setPassword(hashPassword);
+        user.setSalt(salt);
         return userDao.update(user);
     }
 
