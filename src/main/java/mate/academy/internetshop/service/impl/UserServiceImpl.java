@@ -36,10 +36,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User update(User user) {
-        byte[] salt = HashUtil.getSalt();
-        var hashPassword = HashUtil.hashPassword(user.getPassword(), salt);
-        user.setPassword(hashPassword);
-        user.setSalt(salt);
         return userDao.update(user);
     }
 
