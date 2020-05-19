@@ -36,8 +36,8 @@ public class UserDaoJdbcImp implements UserDao {
 
     @Override
     public User create(User user) {
-        var query = "INSERT INTO users (name, email, login, password)"
-                + "VALUES (?, ?, ?, ?)";
+        var query = "INSERT INTO users (name, email, login, password, salt)"
+                + "VALUES (?, ?, ?, ?, ?)";
         try (var connection = ConnectionUtil.getConnection()) {
             var preparedStatement = connection
                     .prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -45,6 +45,7 @@ public class UserDaoJdbcImp implements UserDao {
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getLogin());
             preparedStatement.setString(4, user.getPassword());
+            preparedStatement.setBytes(5, user.getSalt());
             preparedStatement.executeUpdate();
             var resultSet = preparedStatement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -94,7 +95,7 @@ public class UserDaoJdbcImp implements UserDao {
 
     @Override
     public User update(User user) {
-        var query = "UPDATE users SET name = ?, email = ?, login = ?, password = ?"
+        var query = "UPDATE users SET name = ?, email = ?, login = ?, password = ?, salt = ?"
                 + "WHERE user_id = ?";
         try (var connection = ConnectionUtil.getConnection()) {
             var preparedStatement = connection.prepareStatement(query);
@@ -102,7 +103,8 @@ public class UserDaoJdbcImp implements UserDao {
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, user.getLogin());
             preparedStatement.setString(4, user.getPassword());
-            preparedStatement.setLong(5, user.getId());
+            preparedStatement.setBytes(5, user.getSalt());
+            preparedStatement.setLong(6, user.getId());
             preparedStatement.executeUpdate();
             deleteUserFromUsersRoles(user.getId());
             setRolesForUser(user);
@@ -132,7 +134,9 @@ public class UserDaoJdbcImp implements UserDao {
         var email = resultSet.getString("email");
         var login = resultSet.getString("login");
         var password = resultSet.getString("password");
+        var salt = resultSet.getBytes("salt");
         var user = new User(userName, email, login, password);
+        user.setSalt(salt);
         user.setId(userId);
         user.setRoles(getUsersRoles(userId));
         return user;

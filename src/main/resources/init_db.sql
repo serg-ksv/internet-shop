@@ -13,6 +13,7 @@ CREATE TABLE `internet_shop`.`users` (
   `email` VARCHAR(255) NOT NULL,
   `login` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
+  `salt` VARBINARY(255) NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX `login_UNIQUE` (`login` ASC) VISIBLE)
 ENGINE = InnoDB
