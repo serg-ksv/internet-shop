@@ -3,8 +3,7 @@
 <html>
     <head>
         <title>Login</title>
-        <jsp:include page="templates/bootstrap.jsp"/>
-        <style><%@ include file="../../resources/css/styles.css" %></style>
+        <jsp:include page="templates/styles.jsp"/>
     </head>
     <body>
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
