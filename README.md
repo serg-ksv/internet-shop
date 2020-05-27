@@ -18,28 +18,28 @@ It has the following functions:
 - Two roles: User and Admin
 
 Functions for users with an ADMIN role only:
-* add product to the store
-* delete products from the store
-* view a list of all users
-* delete users from the store
+- add product to the store
+- delete products from the store
+- view a list of all users
+- delete users from the store
   
 Functions for users with a USER role only: 
-* add products to user's shopping cart
-* delete products from user's shopping cart
-* view all user's orders
-* complete orders
+- add products to user's shopping cart
+- delete products from user's shopping cart
+- view all user's orders
+- complete orders
 
 <hr>
 
 ## <a name="structure"></a>Project structure
 
-* Java 11
-* Maven 4.0.0
-* javax.servlet-api 3.1.0
-* jstl 1.2
-* log4j 1.2.17
-* mysql-connector-java 8.0.20
-* maven-checkstyle-plugin 3.1.1
+- Java 11
+- Maven 4.0.0
+- javax.servlet-api 3.1.0
+- jstl 1.2
+- log4j 1.2.17
+- mysql-connector-java 8.0.20
+- maven-checkstyle-plugin 3.1.1
 
 ## <a name='developer'></a>For developer
 
