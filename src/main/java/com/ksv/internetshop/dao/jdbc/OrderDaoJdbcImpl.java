@@ -107,8 +107,8 @@ public class OrderDaoJdbcImpl implements OrderDao {
     @Override
     public boolean delete(Long orderId) {
         var query = "DELETE FROM orders WHERE order_id = ?";
+        deleteOrderFromOrdersProducts(orderId);
         try (var connection = ConnectionUtil.getConnection()) {
-            deleteOrderFromOrdersProducts(orderId);
             var prepareStatement = connection.prepareStatement(query);
             prepareStatement.setLong(1, orderId);
             prepareStatement.executeUpdate();
@@ -127,8 +127,8 @@ public class OrderDaoJdbcImpl implements OrderDao {
     private void addProductsToOrder(Order order) {
         var query = "INSERT INTO orders_products (order_id, product_id) VALUES (?, ?)";
         try (var connection = ConnectionUtil.getConnection()) {
+            var prepareStatement = connection.prepareStatement(query);
             for (var product : order.getProducts()) {
-                var prepareStatement = connection.prepareStatement(query);
                 prepareStatement.setLong(1, order.getId());
                 prepareStatement.setLong(2, product.getId());
                 prepareStatement.executeUpdate();
