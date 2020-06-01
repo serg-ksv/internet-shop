@@ -3,8 +3,7 @@
 <html>
     <head>
         <title>Shopping cart</title>
-        <jsp:include page="templates/bootstrap.jsp"/>
-        <style><%@ include file="../../resources/css/styles.css" %></style>
+        <jsp:include page="templates/styles.jsp"/>
     </head>
     <body>
         <jsp:include page="templates/navbar.jsp"/>
